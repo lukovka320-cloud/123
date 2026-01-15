@@ -1,32 +1,27 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Число → слово</title>
-</head>
+<html>
+<head><title>Число в слово</title></head>
 <body>
-    <h1>Введите число</h1>
+<h1>Введите число</h1>
+<input type="number" id="numberInput" placeholder="25 или 5">
+<button onclick="checkNumber()">Проверить</button>
+<div id="result"></div>
+
+<script>
+function checkNumber() {
+    const input = document.getElementById('numberInput');
+    const result = document.getElementById('result');
     
-    <input id="numberInput" type="number" step="0.1" placeholder="25.5">
-    <button onclick="checkAnswer()">Проверить</button>
+    const num = parseInt(input.value);
     
-    <p id="result"></p>
-
-    <script>
-        const correctNumber = 25.5;
-        const word = "П";
-
-        function checkAnswer() {
-            const num = Number(document.getElementById("numberInput").value);
-            const result = document.getElementById("result");
-
-            if (num === correctNumber) {
-                result.textContent = word;
-            } else {
-                result.textContent = "Неть";
-            } 
-        }
-    </script>
+    if (num === 25 || num === 5) {
+        result.textContent = "П";
+    } else {
+        result.textContent = "Неть";
+    }
+    
+    input.value = ''; // Очищает поле
+}
+</script>
 </body>
-
 </html>
